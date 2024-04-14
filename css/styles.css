@@ -1,0 +1,67 @@
+/* Base styles for the body */
+body {
+    background-image: url(/image/background.png);
+    background-repeat: no-repeat;
+    
+    height: 100%;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/* Styles for the container element */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* Styles for the heading element */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* Styles for the input group */
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+}
+/* Styles for the text input */
+.input-group input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+/* Styles for the button */
+.input-group button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.input-group button:hover {
+    background-color: #0056b3;
+}
+/* Styles for the movie info container */
+.movie-info {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.movie-info h2 {
+    margin-top: 0;
+}
+
+.movie-info p {
+    margin: 10px 0;
+}

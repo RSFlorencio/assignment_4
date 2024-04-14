@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Info</title>
+    <link rel="stylesheet" href="css/styles.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>Search for a movie</h1>
+
+        <div class="input-group">
+            <input type="text" id="movie-title" placeholder="Enter movie title">
+            <button onclick="fetchMovieInfo()">Get Movie Info</button>
+        </div>
+        <div id="movie-info" class="movie-info"></div>
+        <br><br>
+        <p>API created by:<a href="https://www.omdbapi.com/"> OMDb</a></p>
+    </div>
+
+    <script>
+        function fetchMovieInfo() {
+            const movieTitle = document.getElementById('movie-title').value;
+            const apiKey = 'e380c6aa'; // OMDB API key
+            const apiUrl = `https://www.omdbapi.com/?t=${movieTitle}&apikey=${apiKey}`;
+
+            // Make a GET request to the OMDB API
+            fetch(apiUrl)
+            // Convert the response to JSON
+                .then(response => response.json())
+                // Handle the data returned by the API
+                .then(data => {
+                    console.log(data);
+                    // Get the movie info div
+                    const movieInfoDiv = document.getElementById('movie-info');
+                    if (data.Response === 'True') {
+                        // Display movie information in the div
+                        movieInfoDiv.innerHTML = `
+                            <h2>${data.Title}</h2>
+                            <p>Year: ${data.Year}</p>
+                            <p>Genre: ${data.Genre}</p>
+                            <p>Director: ${data.Director}</p>
+                            <p>Plot: ${data.Plot}</p>
+                            <img src="${data.Poster}" alt="${data.Title} Poster"> 
+                        
+                        `;
+                        // Display a message if no movie is found
+                    } else {
+                        movieInfoDiv.innerHTML = `<p>No movie found with that title.</p>`;
+                    }
+                })
+                // Handle errors
+                .catch(error => console.error('Error fetching movie data:', error));
+        }
+    </script>
+</body>
+</html>
